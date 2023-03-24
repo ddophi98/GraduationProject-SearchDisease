@@ -6,6 +6,19 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import re
 from time import sleep
+import pandas as pd
+
+# 데이터 형식 정의
+disease_data = pd.DataFrame({
+    'symptom_sum': [],
+    'related_disease_sum': [],
+    'medical_department_sum': [],
+    'definition': [],
+    'cause': [],
+    'symptom': [],
+    'diagnosis': [],
+    'cure': [],
+})
 
 # 서울아산병원 질환백과
 url = "https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseList.do?searchKeyword="
