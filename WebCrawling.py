@@ -8,6 +8,7 @@ import pandas as pd
 
 # 특정 위치의 질병 정보 출력하기
 def print_disease(loc):
+    print('--name--\n' + disease_data['name'][loc] + '\n')
     print('--symptom_sum--\n' + disease_data['symptom_sum'][loc] + '\n')
     print('--related_disease--\n' + disease_data['related_disease'][loc] + '\n')
     print('--medical_department--\n' + disease_data['medical_department'][loc] + '\n')
@@ -40,15 +41,18 @@ def web_crawling(disease_data):
 
         # 각 질병 설명을 보기 위해 순회하면서 클릭
         for disease in diseases:
-            print(cnt)
+            print('\rwebcrawling: ' + str(cnt), end='')
             cnt += 1
             disease.find_element(By.TAG_NAME, 'a').click()
 
-            # 정보 추출 (구현 예정)
+            # 정보 추출
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
 
-            # 1. symptom_sum, related_disease_sum, medical_department_sum
+            # 1. name
+            cont_title = soup.find('strong', class_='contTitle').text.strip()
+
+            # 2. symptom_sum, related_disease_sum, medical_department_sum
             cont_box_title = soup.find('div', class_='contBox').find('dl').find_all('dt')
             cont_box_content = soup.find('div', class_='contBox').find('dl').find_all('dd')
 
@@ -63,7 +67,7 @@ def web_crawling(disease_data):
                 elif title.text == '동의어':
                     synonym = re.sub('\n|\xa0', '', cont_box_content[idx].text).strip()
 
-            # 2. definition, cause, symptom, diagnosis, cure
+            # 3. definition, cause, symptom, diagnosis, cure
             cont_description_title = soup.find('div', class_='contDescription').find('dl').find_all('dt')
             cont_description_content = soup.find('div', class_='contDescription').find('dl').find_all('dd')
 
@@ -81,7 +85,7 @@ def web_crawling(disease_data):
                     cure = re.sub('\n|\xa0', '', cont_description_content[idx].text).strip()
 
             # 정보 추가
-            disease_data.loc[len(disease_data)] = [symptom_sum, related_disease, medical_department, synonym,
+            disease_data.loc[len(disease_data)] = [cont_title, symptom_sum, related_disease, medical_department, synonym,
                                                    definition, cause, symptom, diagnosis, cure]
 
             # 뒤로 가기
@@ -95,6 +99,7 @@ def web_crawling(disease_data):
 # 데이터 형식 정의
 disease_data = pd.DataFrame(
     columns=[
+        'name',                 # 질병명
         'symptom_sum',          # 증상(요약)
         'related_disease',      # 관련 질환
         'medical_department',   # 진료과
