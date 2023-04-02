@@ -20,7 +20,7 @@ def print_disease(loc):
     print('--cure--\n' + disease_data['cure'][loc] + '\n')
 
 # 웹크롤링하기
-def web_crawling(disease_data):
+def webcrawling(disease_data):
     # 서울아산병원 질환백과
     url = "https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseList.do?searchKeyword="
     driver = webdriver.Chrome()
@@ -112,6 +112,6 @@ disease_data = pd.DataFrame(
     ]
 )
 
-web_crawling(disease_data)
-disease_data.to_xml('disease_data.xml')
+webcrawling(disease_data)
+disease_data.to_csv('disease_data.csv')
 
