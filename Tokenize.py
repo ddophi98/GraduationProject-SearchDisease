@@ -40,8 +40,19 @@ def print_vectorized_result(vectorized_result, idx):
     print('=' * 100, '\n')
 
 
+# 결과를 csv 형식으로 추출하기
+def make_dataframe(vectorized_result):
+    vectorizer, vectorized = vectorized_result
+    words = np.array(sorted(vectorizer.vocabulary_.items()))[:, 0]
+    vectorized_data = pd.DataFrame(vectorized.toarray())
+    vectorized_data.to_csv('vectorized_data.csv', header=words)
+
+
 disease_data = pd.read_csv('disease_data.csv')
 result = tokenize_and_vectorize(disease_data['symptom'])
 
+make_dataframe(result)
+
+# 2번째 질병에 대한 예시 출력
 print_tokenize_result(disease_data['symptom'], 2)
 print_vectorized_result(result, 2)
