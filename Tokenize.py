@@ -48,7 +48,7 @@ def make_dataframe(vectorized_result):
     vectorized_data.to_csv('vectorized_data.csv', header=words)
 
 
-disease_data = pd.read_csv('disease_data.csv')
+disease_data = pd.read_csv('disease_data.csv', encoding='CP949')
 result = tokenize_and_vectorize(disease_data['symptom'])
 
 make_dataframe(result)
