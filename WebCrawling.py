@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import re
 import pandas as pd
-
+import time
 
 # 특정 위치의 질병 정보 출력하기
 def print_disease(loc):
@@ -36,13 +36,17 @@ def webcrawling(disease_data):
     cnt = 0
     for page in range(last_page):
 
+        # 페이지 이동
+        time.sleep(0.2)
+        if page != 0 and page%10 == 0:
+            driver.find_element(By.CLASS_NAME, 'nextPageBtn').click()
+        driver.find_element(By.CLASS_NAME, 'numPagingSec').find_elements(By.TAG_NAME, 'a')[page % 10].click()
+
         # 해당 페이지 안에 있는 질병 목록 확인
         diseases = driver.find_elements(By.CLASS_NAME, 'contTitle')
 
         # 각 질병 설명을 보기 위해 순회하면서 클릭
         for disease in diseases:
-            print('\rwebcrawling: ' + str(cnt), end='')
-            cnt += 1
             disease.find_element(By.TAG_NAME, 'a').click()
 
             # 정보 추출
@@ -51,6 +55,9 @@ def webcrawling(disease_data):
 
             # 1. name
             cont_title = soup.find('strong', class_='contTitle').text.strip()
+
+            print('\rpage: ' + str(page) + '/' + str(last_page - 1) + ', disease: ' + str(cnt) + ', name: ' + str(cont_title), end='')
+            cnt += 1
 
             # 2. symptom_sum, related_disease_sum, medical_department_sum
             cont_box_title = soup.find('div', class_='contBox').find('dl').find_all('dt')
@@ -91,9 +98,7 @@ def webcrawling(disease_data):
             # 뒤로 가기
             driver.back()
 
-        # 페이지 이동
-        if page != last_page - 1:
-            driver.find_element(By.CLASS_NAME, 'nextPageBtn').click()
+
 
 
 # 데이터 형식 정의
@@ -113,5 +118,5 @@ disease_data = pd.DataFrame(
 )
 
 webcrawling(disease_data)
-disease_data.to_csv('disease_data.csv')
+disease_data.to_csv('disease_data.csv', encoding='CP949')
 

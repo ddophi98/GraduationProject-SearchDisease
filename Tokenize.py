@@ -45,7 +45,7 @@ def make_dataframe(vectorized_result):
     vectorizer, vectorized = vectorized_result
     words = np.array(sorted(vectorizer.vocabulary_.items()))[:, 0]
     vectorized_data = pd.DataFrame(vectorized.toarray())
-    vectorized_data.to_csv('vectorized_data.csv', header=words)
+    vectorized_data.to_csv('vectorized_data.csv', header=words, encoding='CP949')
 
 
 disease_data = pd.read_csv('disease_data.csv', encoding='CP949')
