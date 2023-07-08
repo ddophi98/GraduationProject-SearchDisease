@@ -78,7 +78,9 @@ class HomeViewModel: ObservableObject {
     // https://github.com/alfianlosari/ChatGPTSwift?ref=iosexample.com
     // ChatGPT한테 증상 물어보고 질병 예측하기
     private func predictWithChatGPT(symptoms: [Symptom]) {
-        let api = ChatGPTAPI(apiKey: "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")
+        let apikey = Bundle.main.infoDictionary?["CHAT_GPT_API_KEY"] ?? ""
+        print(apikey)
+        let api = ChatGPTAPI(apiKey: apikey as! String)
         
         var sentence = ""
         for symptom in symptoms {

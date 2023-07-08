@@ -34,6 +34,8 @@
 		993609552A4E0CAB008CAD52 /* HomeAddSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609542A4E0CAB008CAD52 /* HomeAddSymptomView.swift */; };
 		993609572A4E0D12008CAD52 /* HomeEmptySymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609562A4E0D12008CAD52 /* HomeEmptySymptomView.swift */; };
 		9936095A2A4E0EC1008CAD52 /* AddSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609592A4E0EC1008CAD52 /* AddSymptomView.swift */; };
+		BC6961432A597BF200C78DFA /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC6961422A597BF200C78DFA /* ChatGPTSwift */; };
+		BC6961452A59890900C78DFA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6961442A59890900C78DFA /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,9 @@
 		993609542A4E0CAB008CAD52 /* HomeAddSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddSymptomView.swift; sourceTree = "<group>"; };
 		993609562A4E0D12008CAD52 /* HomeEmptySymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptySymptomView.swift; sourceTree = "<group>"; };
 		993609592A4E0EC1008CAD52 /* AddSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSymptomView.swift; sourceTree = "<group>"; };
+		BC6961442A59890900C78DFA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		BC6961462A59910600C78DFA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = ../Config.xcconfig; sourceTree = "<group>"; };
+		BC6961472A59955900C78DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6961432A597BF200C78DFA /* ChatGPTSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 		990FD1082A48767800F79C17 = {
 			isa = PBXGroup;
 			children = (
+				BC6961462A59910600C78DFA /* Config.xcconfig */,
 				990FD1132A48767800F79C17 /* Client */,
 				990FD1122A48767800F79C17 /* Products */,
 			);
@@ -97,6 +104,7 @@
 		990FD1132A48767800F79C17 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				BC6961472A59955900C78DFA /* Info.plist */,
 				990FD1142A48767800F79C17 /* ClientApp.swift */,
 				990FD1182A48767900F79C17 /* Assets.xcassets */,
 				990FD1442A49DE4000F79C17 /* Resource */,
@@ -137,6 +145,7 @@
 				990FD1502A4DF69700F79C17 /* UIExtension.swift */,
 				990FD1352A4998B500F79C17 /* ColorExtension.swift */,
 				990FD1402A49D83800F79C17 /* DateExtension.swift */,
+				BC6961442A59890900C78DFA /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -224,6 +233,9 @@
 			dependencies = (
 			);
 			name = Client;
+			packageProductDependencies = (
+				BC6961422A597BF200C78DFA /* ChatGPTSwift */,
+			);
 			productName = Client;
 			productReference = 990FD1112A48767800F79C17 /* Client.app */;
 			productType = "com.apple.product-type.application";
@@ -252,6 +264,9 @@
 				Base,
 			);
 			mainGroup = 990FD1082A48767800F79C17;
+			packageReferences = (
+				BC6961412A597BF200C78DFA /* XCRemoteSwiftPackageReference "ChatGPTSwift" */,
+			);
 			productRefGroup = 990FD1122A48767800F79C17 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -286,6 +301,7 @@
 				990FD1472A4DAFA600F79C17 /* SymptomEntry.swift in Sources */,
 				990FD13A2A499CF900F79C17 /* SymptomRepository.swift in Sources */,
 				993373612A4EB6A9004FDEEB /* HomeViewModel.swift in Sources */,
+				BC6961452A59890900C78DFA /* StringExtension.swift in Sources */,
 				990FD1512A4DF69700F79C17 /* UIExtension.swift in Sources */,
 				990FD1172A48767800F79C17 /* HomeView.swift in Sources */,
 				990FD14D2A4DEB3D00F79C17 /* PreviewSymptomRepository.swift in Sources */,
@@ -311,6 +327,7 @@
 /* Begin XCBuildConfiguration section */
 		990FD11D2A48767900F79C17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC6961462A59910600C78DFA /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -359,7 +376,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -371,6 +388,7 @@
 		};
 		990FD11E2A48767900F79C17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC6961462A59910600C78DFA /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -413,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -425,6 +443,7 @@
 		};
 		990FD1202A48767900F79C17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC6961462A59910600C78DFA /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -434,6 +453,7 @@
 				DEVELOPMENT_TEAM = ZRTG6WMRW7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Client/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +474,7 @@
 		};
 		990FD1212A48767900F79C17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC6961462A59910600C78DFA /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -463,6 +484,7 @@
 				DEVELOPMENT_TEAM = ZRTG6WMRW7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Client/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -503,6 +525,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC6961412A597BF200C78DFA /* XCRemoteSwiftPackageReference "ChatGPTSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/ChatGPTSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC6961422A597BF200C78DFA /* ChatGPTSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC6961412A597BF200C78DFA /* XCRemoteSwiftPackageReference "ChatGPTSwift" */;
+			productName = ChatGPTSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 990FD1092A48767800F79C17 /* Project object */;
 }
