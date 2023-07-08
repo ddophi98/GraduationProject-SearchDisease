@@ -12,13 +12,11 @@ struct HomeDiseaseView: View {
     
     var body: some View {
         VStack {
-            let diseases = viewModel.suspectedDisease(from: Date().beforeDays(7), to: Date().beforeDays(0))
-            
             HStack {
                 VStack(alignment: .leading) {
                     Text("해당 증상을 바탕으로")
                     Text("가장 의심되는 질병은 ")
-                    + Text("\(diseases.first?.name ?? "")")
+                    + Text("\(viewModel.predictedDiseases.first?.name ?? "")")
                         .font(.title3)
                         .bold()
                     + Text("입니다.")
@@ -27,12 +25,15 @@ struct HomeDiseaseView: View {
             }
             
             VStack {
-                ForEachWithIndex(data: diseases) { index, disease in
+                ForEachWithIndex(data: viewModel.predictedDiseases) { index, disease in
                     NavigationLink(destination: DiseaseDetailView(disease: disease)) {
                         DiseaseEntry(disease: disease, rank: index + 1)
                     }
                 }
             }
+        }
+        .onAppear {
+            viewModel.suspectedDisease(from: Date().beforeDays(7), to: Date().beforeDays(0))
         }
     }
 }

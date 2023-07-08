@@ -20,6 +20,12 @@ struct HomeView: View {
                     } else {
                         Spacer()
                         HomeEmptySymptomView()
+                        Button {
+                            viewModel.suspectedDisease(from: Date(), to: Date())
+                        } label: {
+                            Text("predict")
+                        }
+
                     }
                     Spacer()
                 }
