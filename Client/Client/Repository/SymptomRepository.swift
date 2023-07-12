@@ -35,13 +35,10 @@ class SQLite3SymptomRepository: SymptomRepository {
         let directoryPath = documentPath.appendingPathComponent("symptom")
         let filePath = directoryPath.appendingPathComponent("symptom.db")
         
-        if fileManager.fileExists(atPath: directoryPath.absoluteString) {
-            do {
-                try fileManager.createDirectory(at: directoryPath, withIntermediateDirectories: false)
-            } catch let e {
-                print("cannot create directory on SQLiteSymptomRepository: \(e.localizedDescription)")
-                return nil
-            }
+        do {
+            try fileManager.createDirectory(at: directoryPath, withIntermediateDirectories: false)
+        } catch {
+            print("Directory Already Exist")
         }
         
         guard sqlite3_open(filePath.path, &db) == SQLITE_OK else {
