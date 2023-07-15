@@ -51,8 +51,19 @@ class HomeViewModel: ObservableObject {
     
     func predictDisease(from: Date, to: Date) {
         if predictedDiseases.isEmpty {
-            let filtered = symptoms.filter{ (from...to).contains($0.date) }
-            predictWithChatGPT(symptoms: filtered)
+            
+//            // 실제로 써야하는거 (gpt 요금 아껴야함ㅎ)
+//            let filtered = symptoms.filter{ (from...to).contains($0.date) }
+//            predictWithChatGPT(symptoms: filtered)
+            
+            // 테스트용
+            DispatchQueue.main.asyncAfter(deadline: .now()+1.0) {
+                self.predictedDiseases = [
+                    Disease(id: 1, name: "감기", definition: "감기정의", cause: "감기원인", symptom: "감기증상", diagnosis: "감기진단", cure: "감기치료"),
+                    Disease(id: 2, name: "코로나", definition: "코로나정의", cause: "코로나원인", symptom: "코로나증상", diagnosis: "코로나진단", cure: "코로나치료"),
+                    Disease(id: 3, name: "결핵", definition: "결핵정의", cause: "결핵원인", symptom: "결핵증상", diagnosis: "결핵진단", cure: "결핵치료"),
+                ]
+            }
         }
     }
     
@@ -68,12 +79,6 @@ class HomeViewModel: ObservableObject {
         // 2. 각 질병마다 값이 0이 아닌 속성(단어)이 sentence에 있는지 확인하기
         // 3. 있다면 해당 값을 더하기
         // 4. 더한 값이 가장 높은 상위 3개 질병 반환
-        
-        predictedDiseases = [
-            Disease(id: 1, name: "감기", definition: "감기정의", cause: "감기원인", symptom: "감기증상", diagnosis: "감기진단", cure: "감기치료"),
-            Disease(id: 2, name: "코로나", definition: "코로나정의", cause: "코로나원인", symptom: "코로나증상", diagnosis: "코로나진단", cure: "코로나치료"),
-            Disease(id: 3, name: "결핵", definition: "결핵정의", cause: "결핵원인", symptom: "결핵증상", diagnosis: "결핵진단", cure: "결핵치료"),
-        ]
     }
     
     // https://github.com/alfianlosari/ChatGPTSwift?ref=iosexample.com

@@ -15,4 +15,8 @@ extension Color {
     static var systemOrange: Color? {
         return Color("SystemOrange")
     }
+    
+    static var systemBlue: Color? {
+        return Color("SystemBlue")
+    }
 }

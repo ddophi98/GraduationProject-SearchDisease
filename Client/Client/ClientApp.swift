@@ -23,6 +23,11 @@ struct ClientApp: App {
                         Image(systemName: "magnifyingglass")
                         Text("질병 검색")
                     }
+                FindHospitalView()
+                    .tabItem {
+                        Image(systemName: "cross.case.fill")
+                        Text("병원 검색")
+                    }
             }
             .tint(.black)
         }

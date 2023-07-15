@@ -28,7 +28,7 @@ struct DiseaseEntry: View {
         .frame(height: 60)
         .background {
             RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(rank == 1 ? .systemGreen : .systemOrange)
+                .foregroundColor(.systemGreen)
                 .opacity(rank == 1 ? 1 : 0.3)
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.black, lineWidth: 1)
