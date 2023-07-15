@@ -49,10 +49,11 @@ class HomeViewModel: ObservableObject {
         symptoms = symptomRepository.findAll()
     }
     
-    // TODO: 구현
-    func suspectedDisease(from: Date, to: Date) {
-        let filtered = symptoms.filter{ (from...to).contains($0.date) }
-        return predictWithChatGPT(symptoms: filtered)
+    func predictDisease(from: Date, to: Date) {
+        if predictedDiseases.isEmpty {
+            let filtered = symptoms.filter{ (from...to).contains($0.date) }
+            predictWithChatGPT(symptoms: filtered)
+        }
     }
     
     // 직접 만든 TF-IDF 파일에서 단어 가중치 계산해서 질병 예측하기
@@ -87,22 +88,35 @@ class HomeViewModel: ObservableObject {
             sentence.append(symptom.content + "\n")
         }
         
-        let question = sentence + "앞서 말한 것들은 요즘 내가 느끼는 증상이야. 내가 가지고 있을만한 질병을 세가지 예측해줘. 질병들은 숫자와 콜론을 이용해서 각각 알려줘"
+        let question = sentence + "앞서 말한 것들은 요즘 내가 느끼는 증상이야. 내가 가지고 있을만한 질병을 다섯가지 예측해줘. 질병들은 1. 감기:, 2. 독감: 형식으로 각각 알려줘"
+        print("[question]\n", question)
         
         Task {
             do {
                 let response = try await api.sendMessage(text: question)
-                print(response)
+                print("[gpt answer]\n", response)
                 let colonIndexs = response.findAll(str: ":")
+                var totalDiseases = [Disease]()
                 for i in 0..<colonIndexs.count {
-                    let numIndex = response.findAll(str: String(i))[0]
+                    let numIndex = response.findAll(str: String(i+1))[0]
                     let diseaseName = response.substring(from: numIndex+3, to: colonIndexs[i])
-                    // TODO: 포함여부로 바꾸기, 없을 때 처리
+                    print("predicted disease name: ", diseaseName)
                     let disease = diseaseRepository.findByName(name: diseaseName)
-                    predictedDiseases.append(contentsOf: disease)
+                    totalDiseases.append(contentsOf: disease)
                 }
+                updataPredictedDiseases(diseases: totalDiseases)
             } catch {
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func updataPredictedDiseases(diseases: [Disease]) {
+        DispatchQueue.main.async {
+            if diseases.count >= 3 {
+                self.predictedDiseases = Array(diseases[0..<3])
+            } else {
+                self.predictedDiseases = diseases
             }
         }
     }

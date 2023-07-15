@@ -33,7 +33,7 @@ struct HomeDiseaseView: View {
             }
         }
         .onAppear {
-            viewModel.suspectedDisease(from: Date().beforeDays(7), to: Date().beforeDays(0))
+            viewModel.predictDisease(from: Date().beforeDays(7), to: Date())
         }
     }
 }

@@ -22,7 +22,7 @@ extension String {
         }
         
         let startIndex = index(self.startIndex, offsetBy: from)
-        let endIndex = index(self.startIndex, offsetBy: to + 1) //
+        let endIndex = index(self.startIndex, offsetBy: to)
         
         return String(self[startIndex ..< endIndex])
     }
