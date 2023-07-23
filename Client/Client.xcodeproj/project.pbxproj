@@ -34,9 +34,11 @@
 		993609552A4E0CAB008CAD52 /* HomeAddSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609542A4E0CAB008CAD52 /* HomeAddSymptomView.swift */; };
 		993609572A4E0D12008CAD52 /* HomeEmptySymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609562A4E0D12008CAD52 /* HomeEmptySymptomView.swift */; };
 		9936095A2A4E0EC1008CAD52 /* AddSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609592A4E0EC1008CAD52 /* AddSymptomView.swift */; };
-		99B253E12A5E70C500F37D7F /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 99B253E02A5E70C500F37D7F /* Config.xcconfig */; };
 		BC6961432A597BF200C78DFA /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC6961422A597BF200C78DFA /* ChatGPTSwift */; };
 		BC6961452A59890900C78DFA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6961442A59890900C78DFA /* StringExtension.swift */; };
+		BC808D2B2A628C2100C93FB9 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BC808D2A2A628C2100C93FB9 /* Config.xcconfig */; };
+		BC808D2D2A629A4300C93FB9 /* FindHospitalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */; };
+		BC808D2F2A629A8C00C93FB9 /* FindHospitalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC808D2E2A629A8C00C93FB9 /* FindHospitalViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,9 +70,11 @@
 		993609542A4E0CAB008CAD52 /* HomeAddSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddSymptomView.swift; sourceTree = "<group>"; };
 		993609562A4E0D12008CAD52 /* HomeEmptySymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptySymptomView.swift; sourceTree = "<group>"; };
 		993609592A4E0EC1008CAD52 /* AddSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSymptomView.swift; sourceTree = "<group>"; };
-		99B253E02A5E70C500F37D7F /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BC6961442A59890900C78DFA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		BC6961472A59955900C78DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BC808D2A2A628C2100C93FB9 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = ../../../../../Downloads/Config.xcconfig; sourceTree = "<group>"; };
+		BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindHospitalView.swift; sourceTree = "<group>"; };
+		BC808D2E2A629A8C00C93FB9 /* FindHospitalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindHospitalViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +92,7 @@
 		990FD1082A48767800F79C17 = {
 			isa = PBXGroup;
 			children = (
-				99B253E02A5E70C500F37D7F /* Config.xcconfig */,
+				BC808D2A2A628C2100C93FB9 /* Config.xcconfig */,
 				990FD1132A48767800F79C17 /* Client */,
 				990FD1122A48767800F79C17 /* Products */,
 			);
@@ -136,6 +140,7 @@
 				990FD1162A48767800F79C17 /* HomeView.swift */,
 				993373572A4E1FDE004FDEEB /* FindDiseaseView.swift */,
 				993373592A4E2B0E004FDEEB /* DiseaseDetailView.swift */,
+				BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 			children = (
 				993373602A4EB6A9004FDEEB /* HomeViewModel.swift */,
 				993373662A4EBC60004FDEEB /* FindDiseaseViewModel.swift */,
+				BC808D2E2A629A8C00C93FB9 /* FindHospitalViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -282,7 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B253E12A5E70C500F37D7F /* Config.xcconfig in Resources */,
+				BC808D2B2A628C2100C93FB9 /* Config.xcconfig in Resources */,
 				990FD11C2A48767900F79C17 /* Preview Assets.xcassets in Resources */,
 				990FD1192A48767900F79C17 /* Assets.xcassets in Resources */,
 				993373692A4ECD2C004FDEEB /* disease.db in Resources */,
@@ -296,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC808D2D2A629A4300C93FB9 /* FindHospitalView.swift in Sources */,
 				993373672A4EBC60004FDEEB /* FindDiseaseViewModel.swift in Sources */,
 				9936094B2A4E01BD008CAD52 /* SymptomListView.swift in Sources */,
 				990FD1362A4998B500F79C17 /* ColorExtension.swift in Sources */,
@@ -319,6 +326,7 @@
 				9933735C2A4E2EA2004FDEEB /* DiseaseSection.swift in Sources */,
 				993609512A4E0B8E008CAD52 /* HomeSymptomView.swift in Sources */,
 				990FD1492A4DBEFE00F79C17 /* DiseaseEntry.swift in Sources */,
+				BC808D2F2A629A8C00C93FB9 /* FindHospitalViewModel.swift in Sources */,
 				990FD1412A49D83800F79C17 /* DateExtension.swift in Sources */,
 				9933735A2A4E2B0E004FDEEB /* DiseaseDetailView.swift in Sources */,
 			);
@@ -329,7 +337,7 @@
 /* Begin XCBuildConfiguration section */
 		990FD11D2A48767900F79C17 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99B253E02A5E70C500F37D7F /* Config.xcconfig */;
+			baseConfigurationReference = BC808D2A2A628C2100C93FB9 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -390,7 +398,6 @@
 		};
 		990FD11E2A48767900F79C17 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99B253E02A5E70C500F37D7F /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -445,7 +452,7 @@
 		};
 		990FD1202A48767900F79C17 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99B253E02A5E70C500F37D7F /* Config.xcconfig */;
+			baseConfigurationReference = BC808D2A2A628C2100C93FB9 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -476,7 +483,6 @@
 		};
 		990FD1212A48767900F79C17 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99B253E02A5E70C500F37D7F /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
