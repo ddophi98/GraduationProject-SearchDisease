@@ -26,13 +26,5 @@ struct UIMapView: UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
-        
-        let coord = NMGLatLng(lat: coord.1, lng: coord.0)
-        let cameraUpdate = NMFCameraUpdate(scrollTo: coord)
-        cameraUpdate.animation = .fly
-        cameraUpdate.animationDuration = 1
-        uiView.mapView.moveCamera(cameraUpdate)}
-        
-    }
+    func updateUIView(_ uiView: NMFNaverMapView, context: Context) {}
 }
