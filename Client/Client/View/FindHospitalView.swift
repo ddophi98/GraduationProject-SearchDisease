@@ -54,7 +54,7 @@ struct FindHospitalView: View {
                     }
                 }
                 .padding()
-                Spacer()
+                MapView()
             }
         }
     }

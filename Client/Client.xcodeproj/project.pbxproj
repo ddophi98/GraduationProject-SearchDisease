@@ -35,6 +35,7 @@
 		993609552A4E0CAB008CAD52 /* HomeAddSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609542A4E0CAB008CAD52 /* HomeAddSymptomView.swift */; };
 		993609572A4E0D12008CAD52 /* HomeEmptySymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609562A4E0D12008CAD52 /* HomeEmptySymptomView.swift */; };
 		9936095A2A4E0EC1008CAD52 /* AddSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609592A4E0EC1008CAD52 /* AddSymptomView.swift */; };
+		BC0782CD2A6D577600366F16 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0782CC2A6D577600366F16 /* MapView.swift */; };
 		BC6961432A597BF200C78DFA /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC6961422A597BF200C78DFA /* ChatGPTSwift */; };
 		BC6961452A59890900C78DFA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6961442A59890900C78DFA /* StringExtension.swift */; };
 		BC808D2B2A628C2100C93FB9 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BC808D2A2A628C2100C93FB9 /* Config.xcconfig */; };
@@ -72,6 +73,7 @@
 		993609542A4E0CAB008CAD52 /* HomeAddSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddSymptomView.swift; sourceTree = "<group>"; };
 		993609562A4E0D12008CAD52 /* HomeEmptySymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptySymptomView.swift; sourceTree = "<group>"; };
 		993609592A4E0EC1008CAD52 /* AddSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSymptomView.swift; sourceTree = "<group>"; };
+		BC0782CC2A6D577600366F16 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		BC6961442A59890900C78DFA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		BC6961472A59955900C78DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BC808D2A2A628C2100C93FB9 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = ../../../../../Downloads/Config.xcconfig; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				993373572A4E1FDE004FDEEB /* FindDiseaseView.swift */,
 				993373592A4E2B0E004FDEEB /* DiseaseDetailView.swift */,
 				BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */,
+				BC0782CC2A6D577600366F16 /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				993609572A4E0D12008CAD52 /* HomeEmptySymptomView.swift in Sources */,
 				993609532A4E0C45008CAD52 /* HomeDiseaseView.swift in Sources */,
 				990FD13C2A499D1100F79C17 /* Symptom.swift in Sources */,
+				BC0782CD2A6D577600366F16 /* MapView.swift in Sources */,
 				9933735C2A4E2EA2004FDEEB /* DiseaseSection.swift in Sources */,
 				993609512A4E0B8E008CAD52 /* HomeSymptomView.swift in Sources */,
 				990FD1492A4DBEFE00F79C17 /* DiseaseEntry.swift in Sources */,
