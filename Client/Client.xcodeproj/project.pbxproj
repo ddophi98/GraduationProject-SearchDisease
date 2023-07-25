@@ -35,10 +35,10 @@
 		993609552A4E0CAB008CAD52 /* HomeAddSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609542A4E0CAB008CAD52 /* HomeAddSymptomView.swift */; };
 		993609572A4E0D12008CAD52 /* HomeEmptySymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609562A4E0D12008CAD52 /* HomeEmptySymptomView.swift */; };
 		9936095A2A4E0EC1008CAD52 /* AddSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609592A4E0EC1008CAD52 /* AddSymptomView.swift */; };
+		99DFC36C2A6D6B3700758E04 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 99DFC36B2A6D6B3700758E04 /* Config.xcconfig */; };
 		BC0782CD2A6D577600366F16 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0782CC2A6D577600366F16 /* MapView.swift */; };
 		BC6961432A597BF200C78DFA /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC6961422A597BF200C78DFA /* ChatGPTSwift */; };
 		BC6961452A59890900C78DFA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6961442A59890900C78DFA /* StringExtension.swift */; };
-		BC808D2B2A628C2100C93FB9 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BC808D2A2A628C2100C93FB9 /* Config.xcconfig */; };
 		BC808D2D2A629A4300C93FB9 /* FindHospitalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */; };
 		BC808D2F2A629A8C00C93FB9 /* FindHospitalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC808D2E2A629A8C00C93FB9 /* FindHospitalViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -73,10 +73,10 @@
 		993609542A4E0CAB008CAD52 /* HomeAddSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddSymptomView.swift; sourceTree = "<group>"; };
 		993609562A4E0D12008CAD52 /* HomeEmptySymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptySymptomView.swift; sourceTree = "<group>"; };
 		993609592A4E0EC1008CAD52 /* AddSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSymptomView.swift; sourceTree = "<group>"; };
+		99DFC36B2A6D6B3700758E04 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BC0782CC2A6D577600366F16 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		BC6961442A59890900C78DFA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		BC6961472A59955900C78DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		BC808D2A2A628C2100C93FB9 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = ../../../../../Downloads/Config.xcconfig; sourceTree = "<group>"; };
 		BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindHospitalView.swift; sourceTree = "<group>"; };
 		BC808D2E2A629A8C00C93FB9 /* FindHospitalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindHospitalViewModel.swift; sourceTree = "<group>"; };
 		C40F81FBBF8D355B363F9EA1 /* Pods-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.release.xcconfig"; path = "Target Support Files/Pods-Client/Pods-Client.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		990FD1082A48767800F79C17 = {
 			isa = PBXGroup;
 			children = (
-				BC808D2A2A628C2100C93FB9 /* Config.xcconfig */,
+				99DFC36B2A6D6B3700758E04 /* Config.xcconfig */,
 				990FD1132A48767800F79C17 /* Client */,
 				990FD1122A48767800F79C17 /* Products */,
 				15207296408EA5EE64EC9EFA /* Pods */,
@@ -317,7 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC808D2B2A628C2100C93FB9 /* Config.xcconfig in Resources */,
+				99DFC36C2A6D6B3700758E04 /* Config.xcconfig in Resources */,
 				990FD11C2A48767900F79C17 /* Preview Assets.xcassets in Resources */,
 				990FD1192A48767900F79C17 /* Assets.xcassets in Resources */,
 				993373692A4ECD2C004FDEEB /* disease.db in Resources */,
@@ -524,7 +524,7 @@
 		};
 		990FD1202A48767900F79C17 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC808D2A2A628C2100C93FB9 /* Config.xcconfig */;
+			baseConfigurationReference = 99DFC36B2A6D6B3700758E04 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
