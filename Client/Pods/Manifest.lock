@@ -1,20 +1,33 @@
 PODS:
+  - Alamofire (5.7.1)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Combine (15.0.0):
+    - Moya/Core
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
   - NMapsGeometry (1.0.1)
   - NMapsMap (3.17.0):
     - NMapsGeometry
 
 DEPENDENCIES:
+  - Moya
+  - Moya/Combine
   - NMapsMap
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Moya
     - NMapsGeometry
     - NMapsMap
 
 SPEC CHECKSUMS:
+  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
   NMapsMap: a5b909a31b6f3d27a670f6eb2ddc913c38975474
 
-PODFILE CHECKSUM: 4bd36cbecbf421d9a09b6f7f3af310c02b187587
+PODFILE CHECKSUM: 6ec9c26ecdcb20aefe1c2f0b383345c30cffbaaa
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

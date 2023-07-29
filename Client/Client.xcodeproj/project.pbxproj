@@ -37,6 +37,12 @@
 		9936095A2A4E0EC1008CAD52 /* AddSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993609592A4E0EC1008CAD52 /* AddSymptomView.swift */; };
 		99DFC36C2A6D6B3700758E04 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 99DFC36B2A6D6B3700758E04 /* Config.xcconfig */; };
 		BC0782CD2A6D577600366F16 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0782CC2A6D577600366F16 /* MapView.swift */; };
+		BC31F5C22A74E119008CE091 /* BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31F5C12A74E118008CE091 /* BindingExtension.swift */; };
+		BC31F5C82A74EEB1008CE091 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31F5C72A74EEB1008CE091 /* SearchResponse.swift */; };
+		BC31F5CB2A74EF00008CE091 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31F5CA2A74EF00008CE091 /* MapAPI.swift */; };
+		BC31F5CD2A74F2B3008CE091 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31F5CC2A74F2B3008CE091 /* SearchRequest.swift */; };
+		BC31F5CF2A74F731008CE091 /* MapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31F5CE2A74F731008CE091 /* MapRepository.swift */; };
+		BC31F5D12A74F870008CE091 /* MoyaWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31F5D02A74F870008CE091 /* MoyaWrapper.swift */; };
 		BC6961432A597BF200C78DFA /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC6961422A597BF200C78DFA /* ChatGPTSwift */; };
 		BC6961452A59890900C78DFA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6961442A59890900C78DFA /* StringExtension.swift */; };
 		BC808D2D2A629A4300C93FB9 /* FindHospitalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */; };
@@ -75,8 +81,14 @@
 		993609592A4E0EC1008CAD52 /* AddSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSymptomView.swift; sourceTree = "<group>"; };
 		99DFC36B2A6D6B3700758E04 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BC0782CC2A6D577600366F16 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		BC31F5C12A74E118008CE091 /* BindingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExtension.swift; sourceTree = "<group>"; };
+		BC31F5C72A74EEB1008CE091 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		BC31F5CA2A74EF00008CE091 /* MapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPI.swift; sourceTree = "<group>"; };
+		BC31F5CC2A74F2B3008CE091 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		BC31F5CE2A74F731008CE091 /* MapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRepository.swift; sourceTree = "<group>"; };
+		BC31F5D02A74F870008CE091 /* MoyaWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaWrapper.swift; sourceTree = "<group>"; };
 		BC6961442A59890900C78DFA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		BC6961472A59955900C78DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BC6961472A59955900C78DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindHospitalView.swift; sourceTree = "<group>"; };
 		BC808D2E2A629A8C00C93FB9 /* FindHospitalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindHospitalViewModel.swift; sourceTree = "<group>"; };
 		C40F81FBBF8D355B363F9EA1 /* Pods-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.release.xcconfig"; path = "Target Support Files/Pods-Client/Pods-Client.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,9 +139,10 @@
 		990FD1132A48767800F79C17 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				BC6961472A59955900C78DFA /* Info.plist */,
-				990FD1142A48767800F79C17 /* ClientApp.swift */,
 				990FD1182A48767900F79C17 /* Assets.xcassets */,
+				990FD1142A48767800F79C17 /* ClientApp.swift */,
+				BC6961472A59955900C78DFA /* Info.plist */,
+				BC31F5C92A74EEE5008CE091 /* Network */,
 				990FD1442A49DE4000F79C17 /* Resource */,
 				990FD13E2A49A62000F79C17 /* Extension */,
 				9933736A2A4ECF5E004FDEEB /* Model */,
@@ -171,6 +184,7 @@
 				990FD1352A4998B500F79C17 /* ColorExtension.swift */,
 				990FD1402A49D83800F79C17 /* DateExtension.swift */,
 				BC6961442A59890900C78DFA /* StringExtension.swift */,
+				BC31F5C12A74E118008CE091 /* BindingExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -208,6 +222,8 @@
 			children = (
 				990FD1262A487C8200F79C17 /* Disease.swift */,
 				990FD13B2A499D1100F79C17 /* Symptom.swift */,
+				BC31F5C72A74EEB1008CE091 /* SearchResponse.swift */,
+				BC31F5CC2A74F2B3008CE091 /* SearchRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +233,7 @@
 			children = (
 				990FD12E2A4899C300F79C17 /* DiseaseRepository.swift */,
 				990FD1392A499CF900F79C17 /* SymptomRepository.swift */,
+				BC31F5CE2A74F731008CE091 /* MapRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -249,6 +266,15 @@
 				D569C90FADD869BA1DCD9877 /* Pods_Client.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC31F5C92A74EEE5008CE091 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BC31F5CA2A74EF00008CE091 /* MapAPI.swift */,
+				BC31F5D02A74F870008CE091 /* MoyaWrapper.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,15 +408,21 @@
 				990FD13A2A499CF900F79C17 /* SymptomRepository.swift in Sources */,
 				993373612A4EB6A9004FDEEB /* HomeViewModel.swift in Sources */,
 				BC6961452A59890900C78DFA /* StringExtension.swift in Sources */,
+				BC31F5C82A74EEB1008CE091 /* SearchResponse.swift in Sources */,
 				990FD1512A4DF69700F79C17 /* UIExtension.swift in Sources */,
 				990FD1172A48767800F79C17 /* HomeView.swift in Sources */,
 				990FD14D2A4DEB3D00F79C17 /* PreviewSymptomRepository.swift in Sources */,
+				BC31F5CD2A74F2B3008CE091 /* SearchRequest.swift in Sources */,
 				9936095A2A4E0EC1008CAD52 /* AddSymptomView.swift in Sources */,
 				990FD14F2A4DF32300F79C17 /* PreviewDiseaseRepository.swift in Sources */,
 				993609552A4E0CAB008CAD52 /* HomeAddSymptomView.swift in Sources */,
 				990FD1152A48767800F79C17 /* ClientApp.swift in Sources */,
 				993373582A4E1FDE004FDEEB /* FindDiseaseView.swift in Sources */,
+				BC31F5D12A74F870008CE091 /* MoyaWrapper.swift in Sources */,
+				BC31F5CB2A74EF00008CE091 /* MapAPI.swift in Sources */,
+				BC31F5C22A74E119008CE091 /* BindingExtension.swift in Sources */,
 				990FD12F2A4899C300F79C17 /* DiseaseRepository.swift in Sources */,
+				BC31F5CF2A74F731008CE091 /* MapRepository.swift in Sources */,
 				993609572A4E0D12008CAD52 /* HomeEmptySymptomView.swift in Sources */,
 				993609532A4E0C45008CAD52 /* HomeDiseaseView.swift in Sources */,
 				990FD13C2A499D1100F79C17 /* Symptom.swift in Sources */,
@@ -535,6 +567,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Client/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치 사용을 허용하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -566,6 +599,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Client/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치 사용을 허용하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

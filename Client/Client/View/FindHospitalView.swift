@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FindHospitalView: View {
-    @StateObject var viewModel = FindHospitalViewModel()
+    @StateObject var viewModel = FindHospitalViewModel(mapRepository: KakaoMapRepository())
     
     var body: some View {
         NavigationView {
@@ -54,8 +54,22 @@ struct FindHospitalView: View {
                     }
                 }
                 .padding()
-                MapView()
+                
+                if viewModel.searchState == .fail {
+                    Text("주변에 " + viewModel.searchText + " 은 없습니다.")
+                        .foregroundColor(.red)
+                } else if viewModel.searchState == .success {
+                    Text("해당 위치에 " + viewModel.foundPlaceName + " 이 있습니다.")
+                }
+                
+                MapView(coord: $viewModel.coord.toUnwrapped(defaultValue: (0, 0)))
             }
+        }
+        .onAppear {
+            viewModel.getUserLocation()
+        }
+        .onChange(of: viewModel.searchText) { _ in
+            viewModel.searchState = .notStart
         }
     }
 }
