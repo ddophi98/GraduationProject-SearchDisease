@@ -14,9 +14,11 @@ struct SymptomEntry: View {
     var body: some View {
         HStack {
             Text(symptom.content)
+                .font(.system(size: 15))
                 .lineLimit(oneLineLimit ? 1 : nil)
             Spacer()
             Text(daysBefore(date: symptom.date))
+                .font(.system(size: 15))
         }
         .padding(.vertical, 10)
         .padding(.horizontal)

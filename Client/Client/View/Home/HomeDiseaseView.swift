@@ -13,14 +13,23 @@ struct HomeDiseaseView: View {
     var body: some View {
         VStack {
             HStack {
+                Text("예측 질병")
+                    .font(.title2)
+                Spacer()
+            }
+            
+            Divider()
+            
+            HStack {
                 VStack(alignment: .leading) {
-                    Text("해당 증상을 바탕으로")
-                    Text("가장 의심되는 질병은 ")
+                    Text("해당 증상을 바탕으로 가장 의심되는 질병은 ")
                     + Text("\(viewModel.predictedDiseases.first?.name ?? "")")
-                        .font(.title3)
                         .bold()
                     + Text("입니다.")
                 }
+                .font(.system(size: 15))
+                .padding([.top, .bottom])
+                
                 Spacer()
             }
             

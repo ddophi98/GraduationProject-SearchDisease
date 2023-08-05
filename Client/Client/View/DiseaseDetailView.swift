@@ -20,22 +20,22 @@ struct DiseaseDetailView: View {
                 DiseaseSection(title: "치료", content: disease.cure)
                 Spacer()
             }
-            
-            Button(action: {}) {
-                HStack {
-                    Spacer()
-                    Text("병원 검색")
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(.black)
-                    Spacer()
-                }
-            }
-            .frame(height: 50)
-            .background {
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(.systemOrange)
-            }
+//            
+//            Button(action: {}) {
+//                HStack {
+//                    Spacer()
+//                    Text("병원 검색")
+//                        .font(.title3)
+//                        .bold()
+//                        .foregroundColor(.black)
+//                    Spacer()
+//                }
+//            }
+//            .frame(height: 50)
+//            .background {
+//                RoundedRectangle(cornerRadius: 20)
+//                    .foregroundColor(.systemOrange)
+//            }
         }
         .padding()
         .navigationTitle(disease.name)

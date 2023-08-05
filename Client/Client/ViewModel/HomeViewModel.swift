@@ -15,11 +15,24 @@ class HomeViewModel: ObservableObject {
     @Published var isSheetPresented: Bool = false
     @Published var inputText: String = ""
     @Published var predictedDiseases = [Disease]()
+    @Published var isInputEmpty = false
     
     init(symptomRepository: SymptomRepository, diseaseRepository: DiseaseRepository) {
         self.symptomRepository = symptomRepository
         self.diseaseRepository = diseaseRepository
         self.symptoms = symptomRepository.findAll()
+    }
+    
+    func notifyInputIsEmpty(_ isTrue: Bool) {
+        if isTrue {
+            isInputEmpty = true
+        } else {
+            isInputEmpty = false
+        }
+    }
+    
+    func dismissSheet() {
+        isSheetPresented = false
     }
     
     func hasSymptom(after: Date? = nil) -> Bool {

@@ -23,6 +23,9 @@ struct FindDiseaseView: View {
                                     .foregroundColor(.gray)
                                     .opacity(0.3)
                             }
+                            .onSubmit {
+                                viewModel.search()
+                            }
                         
                         if !viewModel.searchText.isEmpty {
                             HStack {

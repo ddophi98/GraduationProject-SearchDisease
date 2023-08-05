@@ -13,34 +13,34 @@ struct HomeSymptomView: View {
     var body: some View {
         VStack {
             HStack {
+                Text("증상")
+                    .font(.title2)
+                Spacer()
+            }
+            
+            Divider()
+            
+            HStack {
                 VStack(alignment: .leading) {
                     Text("지난 일주일간 ")
                     + Text("\(viewModel.countSymptom(after: Date().beforeDays(7)))번")
-                        .font(.title3)
                         .bold()
-                    + Text("의 증상이 있었습니다.")
+                    + Text("의 증상을 입력했습니다.")
                 }
+                .font(.system(size: 15))
+                .padding([.top, .bottom])
+                
                 Spacer()
+                
+                NavigationLink(destination: SymptomListView(viewModel: viewModel)) {
+                    Image(systemName: "chevron.right")
+                }
             }
             
             VStack {
                 ForEach(viewModel.getSymptoms(count: 3, after: Date().beforeDays(7))) { symptom in
                     SymptomEntry(symptom: symptom, oneLineLimit: true)
                 }
-                
-                NavigationLink(destination: SymptomListView(viewModel: viewModel)) {
-                    HStack {
-                        Text("더보기")
-                            .foregroundColor(.black)
-                    }
-                    .frame(width: 100, height: 30)
-                    .background {
-                        RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(.systemOrange)
-                            .opacity(0.3)
-                    }
-                }
-                .padding(.top)
             }
             .padding(.bottom)
         }

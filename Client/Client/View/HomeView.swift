@@ -12,23 +12,26 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            ScrollView {
                 VStack {
-                    if viewModel.hasSymptom(after: Date().beforeDays(7)) {
-                        HomeSymptomView(viewModel: viewModel)
-                        HomeDiseaseView(viewModel: viewModel)
-                    } else {
+                    VStack {
+                        if viewModel.hasSymptom(after: Date().beforeDays(7)) {
+                            HomeSymptomView(viewModel: viewModel)
+                            HomeDiseaseView(viewModel: viewModel)
+                                .padding(.top)
+                        } else {
+                            Spacer()
+                            HomeEmptySymptomView()
+                        }
                         Spacer()
-                        HomeEmptySymptomView()
                     }
-                    Spacer()
-                }
-                .padding()
-                
-                HomeAddSymptomView(viewModel: viewModel)
                     .padding()
+                    
+                    HomeAddSymptomView(viewModel: viewModel)
+                        .padding()
+                }
+                .padding(.bottom)
             }
-            .padding(.bottom)
         }
     }
 }

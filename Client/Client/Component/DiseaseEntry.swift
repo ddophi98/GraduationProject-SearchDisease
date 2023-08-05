@@ -13,11 +13,12 @@ struct DiseaseEntry: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("\(rank == nil ? "" : "\(rank!). ")\(disease.name)")
-                    .font(.title3)
+                    .font(.system(size: 15))
                     .bold()
                 Text(disease.definition)
+                    .font(.system(size: 12))
                     .lineLimit(1)
             }
             Spacer()
@@ -29,9 +30,7 @@ struct DiseaseEntry: View {
         .background {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(.systemGreen)
-                .opacity(rank == 1 ? 1 : 0.3)
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.black, lineWidth: 1)
+                .opacity(0.7)
         }
     }
 }

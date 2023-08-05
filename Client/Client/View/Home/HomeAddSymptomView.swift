@@ -35,7 +35,7 @@ struct HomeAddSymptomView: View {
                     .foregroundColor(.systemOrange)
             }
         }
-        .sheet(isPresented: $viewModel.isSheetPresented) {
+        .fullScreenCover(isPresented: $viewModel.isSheetPresented) {
             AddSymptomView(viewModel: viewModel)
         }
     }

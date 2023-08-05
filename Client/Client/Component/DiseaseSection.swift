@@ -19,6 +19,7 @@ struct DiseaseSection: View {
             Divider()
             HStack {
                 Text(content)
+                    .font(.system(size: 15))
                 Spacer()
             }
             .padding()

@@ -23,6 +23,9 @@ struct FindHospitalView: View {
                                     .foregroundColor(.gray)
                                     .opacity(0.3)
                             }
+                            .onSubmit {
+                                viewModel.search()
+                            }
                         
                         if !viewModel.searchText.isEmpty {
                             HStack {
@@ -56,10 +59,28 @@ struct FindHospitalView: View {
                 .padding()
                 
                 if viewModel.searchState == .fail {
-                    Text("주변에 " + viewModel.searchText + " 은 없습니다.")
-                        .foregroundColor(.red)
+                    Divider()
+                    HStack {
+                        Text("주변에")
+                        Text(viewModel.searchText)
+                            .fontWeight(.bold)
+                            .foregroundColor(.red)
+                            .multilineTextAlignment(.center)
+                        Text("는(은) 없습니다.")
+                    }
+                    .padding([.leading, .trailing])
+                    Divider()
                 } else if viewModel.searchState == .success {
-                    Text("해당 위치에 " + viewModel.foundPlaceName + " 이 있습니다.")
+                    Divider()
+                    HStack {
+                        Text("해당 위치에")
+                        Text(viewModel.foundPlaceName)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                        Text("가(이) 있습니다.")
+                    }
+                    .padding([.leading, .trailing])
+                    Divider()
                 }
                 
                 MapView(coord: $viewModel.coord.toUnwrapped(defaultValue: (0, 0)))
