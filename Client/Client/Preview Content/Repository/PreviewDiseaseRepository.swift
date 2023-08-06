@@ -18,6 +18,10 @@ class PreviewDiseaseRepository: DiseaseRepository {
         ]
     }
     
+    func findById(id: Int) -> Disease? {
+        Disease(id: 1, name: "감기", definition: "감기정의", cause: "감기원인", symptom: "감기증상", diagnosis: "감기진단", cure: "감기치료")
+    }
+    
     func getSuspectedDisease(from: Date, to: Date) -> [Disease] {
         return [
             Disease(id: 1, name: "감기", definition: "감기정의", cause: "감기원인", symptom: "감기증상", diagnosis: "감기진단", cure: "감기치료"),

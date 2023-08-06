@@ -12,6 +12,7 @@ protocol DiseaseRepository {
     static var shared: DiseaseRepository { get }
     
     func findByName(name: String) -> [Disease]
+    func findById(id: Int) -> Disease?
     func getSuspectedDisease(from: Date, to: Date) -> [Disease]
 }
 
@@ -63,6 +64,32 @@ class SQLite3DiseaseRepository: DiseaseRepository {
         }
         
         return result
+    }
+    
+    func findById(id: Int) -> Disease? {
+        let query = "select * from disease where id=\(id)"
+        var stmt: OpaquePointer?
+        
+        defer { sqlite3_finalize(stmt) }
+        
+        guard sqlite3_prepare_v2(db, query, -1, &stmt, nil) == SQLITE_OK else {
+            let msg = String(cString: sqlite3_errmsg(db))
+            print("error on SQLite3DiseaseRepository.findByName: \(msg)")
+            return nil
+        }
+        
+        if sqlite3_step(stmt) == SQLITE_ROW {
+            let id = Int(sqlite3_column_int(stmt, 0))
+            let name = String(cString: sqlite3_column_text(stmt, 1))
+            let definition = String(cString: sqlite3_column_text(stmt, 2))
+            let cause = String(cString: sqlite3_column_text(stmt, 3))
+            let symptom = String(cString: sqlite3_column_text(stmt, 4))
+            let dianosis = String(cString: sqlite3_column_text(stmt, 5))
+            let cure = String(cString: sqlite3_column_text(stmt, 6))
+            return Disease(id: id, name: name, definition: definition, cause: cause, symptom: symptom, diagnosis: dianosis, cure: cure)
+        }
+        
+        return nil
     }
     
     // TODO: 구현
