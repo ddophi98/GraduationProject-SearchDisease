@@ -16,7 +16,7 @@ def predict_disease_by_tfidf(symptoms):
     total_sum = vectorized_data.sum(axis=1)
     largest_index = list(total_sum.nlargest(n=3).index)
 
-    return largest_index
+    return [idx+1 for idx in largest_index]
 
 # 토큰화 해주는 함수
 def tokenizer(raw_text):
@@ -29,6 +29,7 @@ def tokenizer(raw_text):
     return tokens
 
 
-symptoms = ["목이 아픔", "추움", "기침이 나옴", "콧물이 나옴"]
+print("predict start")
+symptoms = ["머리가 아픔", "기침이 나오고 두통이 있음"]
 result = predict_disease_by_tfidf(symptoms)
 print(result)
