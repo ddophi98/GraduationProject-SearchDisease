@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Symptom: Identifiable {
+struct Symptom: Identifiable, Equatable {
     let id: Int
     let content: String
     let date: Date
