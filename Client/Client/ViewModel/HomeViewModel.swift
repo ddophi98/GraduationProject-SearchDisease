@@ -143,7 +143,15 @@ class HomeViewModel: ObservableObject {
             sentence.append(symptom.content + "\n")
         }
         
-        let question = sentence + "앞서 말한 것들은 요즘 내가 느끼는 증상이야. 내가 가지고 있을만한 질병을 다섯가지 예측해줘. 질병들은 1. 감기:, 2. 독감: 형식으로 각각 알려줘"
+        let age = UserDefaults.standard.string(forKey: "age")!
+        let height = UserDefaults.standard.string(forKey: "height")!
+        let weight = UserDefaults.standard.string(forKey: "weight")!
+        let gender = UserDefaults.standard.string(forKey: "gender")!
+        
+        let question = "내 나이는 \(age)살 이고, 키는 \(height)cm 이고, 몸무게는 \(weight)kg 이고, 성별은 \(gender)야.\n" +
+                        "아래에 말하는 것들은 요즘 내가 느끼는 증상이야. 내가 가지고 있을만한 질병을 다섯가지 예측해줘. 질병들은 1. 감기:, 2. 독감: 형식으로 각각 알려줘\n\n" +
+                        sentence
+        print(question)
         
         Task {
             do {
