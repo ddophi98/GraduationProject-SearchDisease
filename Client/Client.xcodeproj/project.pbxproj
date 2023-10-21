@@ -47,6 +47,8 @@
 		BC6961452A59890900C78DFA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6961442A59890900C78DFA /* StringExtension.swift */; };
 		BC808D2D2A629A4300C93FB9 /* FindHospitalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */; };
 		BC808D2F2A629A8C00C93FB9 /* FindHospitalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC808D2E2A629A8C00C93FB9 /* FindHospitalViewModel.swift */; };
+		BCD92A0B2AE3A75C009B7C9F /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD92A0A2AE3A75C009B7C9F /* InitialView.swift */; };
+		BCD92A0D2AE3B15E009B7C9F /* GetUserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD92A0C2AE3B15E009B7C9F /* GetUserInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +93,8 @@
 		BC6961472A59955900C78DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindHospitalView.swift; sourceTree = "<group>"; };
 		BC808D2E2A629A8C00C93FB9 /* FindHospitalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindHospitalViewModel.swift; sourceTree = "<group>"; };
+		BCD92A0A2AE3A75C009B7C9F /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
+		BCD92A0C2AE3B15E009B7C9F /* GetUserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfoViewModel.swift; sourceTree = "<group>"; };
 		C40F81FBBF8D355B363F9EA1 /* Pods-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.release.xcconfig"; path = "Target Support Files/Pods-Client/Pods-Client.release.xcconfig"; sourceTree = "<group>"; };
 		D569C90FADD869BA1DCD9877 /* Pods_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -173,6 +177,7 @@
 				993373592A4E2B0E004FDEEB /* DiseaseDetailView.swift */,
 				BC808D2C2A629A4300C93FB9 /* FindHospitalView.swift */,
 				BC0782CC2A6D577600366F16 /* MapView.swift */,
+				BCD92A0A2AE3A75C009B7C9F /* InitialView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				993373602A4EB6A9004FDEEB /* HomeViewModel.swift */,
 				993373662A4EBC60004FDEEB /* FindDiseaseViewModel.swift */,
 				BC808D2E2A629A8C00C93FB9 /* FindHospitalViewModel.swift */,
+				BCD92A0C2AE3B15E009B7C9F /* GetUserInfoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCD92A0B2AE3A75C009B7C9F /* InitialView.swift in Sources */,
 				BC808D2D2A629A4300C93FB9 /* FindHospitalView.swift in Sources */,
 				993373672A4EBC60004FDEEB /* FindDiseaseViewModel.swift in Sources */,
 				9936094B2A4E01BD008CAD52 /* SymptomListView.swift in Sources */,
@@ -414,6 +421,7 @@
 				990FD14D2A4DEB3D00F79C17 /* PreviewSymptomRepository.swift in Sources */,
 				BC31F5CD2A74F2B3008CE091 /* SearchRequest.swift in Sources */,
 				9936095A2A4E0EC1008CAD52 /* AddSymptomView.swift in Sources */,
+				BCD92A0D2AE3B15E009B7C9F /* GetUserInfoViewModel.swift in Sources */,
 				990FD14F2A4DF32300F79C17 /* PreviewDiseaseRepository.swift in Sources */,
 				993609552A4E0CAB008CAD52 /* HomeAddSymptomView.swift in Sources */,
 				990FD1152A48767800F79C17 /* ClientApp.swift in Sources */,
