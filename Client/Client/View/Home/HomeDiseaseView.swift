@@ -69,6 +69,7 @@ struct HomeDiseaseView: View {
             Picker("", selection: $viewModel.predictMode) {
                 Text("TF-IDF").tag(PredictMode.tfidf)
                 Text("ChatGPT").tag(PredictMode.chatGPT)
+                Text("Both").tag(PredictMode.both)
             }
             .pickerStyle(.segmented)
             .frame(width: 200)

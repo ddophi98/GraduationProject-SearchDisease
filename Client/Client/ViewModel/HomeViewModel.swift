@@ -12,6 +12,7 @@ import ChatGPTSwift
 enum PredictMode {
     case chatGPT
     case tfidf
+    case both
 }
 
 class HomeViewModel: ObservableObject {
@@ -84,6 +85,8 @@ class HomeViewModel: ObservableObject {
             predictWithVerctorization(symptoms: filtered)
         case .chatGPT:
             predictWithChatGPT(symptoms: filtered)
+        case .both:
+            predictWithBoth(symptoms: filtered)
         }
         //predictWithTestData()
     }
@@ -166,6 +169,76 @@ class HomeViewModel: ObservableObject {
                     totalDiseases.append(contentsOf: disease)
                 }
                 updataPredictedDiseases(diseases: totalDiseases)
+            } catch {
+                print(error.localizedDescription)
+            }
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+        }
+    }
+    
+    private func predictWithBoth(symptoms: [Symptom]) {
+        let domain = "http://13.124.149.125:5000/diseases/predict?symptoms="
+        let symptomString = symptoms
+            .map { $0.content }
+            .joined(separator: ",")
+        guard let urlEncoded = (domain + symptomString).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        let url = URL(string: urlEncoded)!
+        
+        let apikey = Bundle.main.infoDictionary?["CHAT_GPT_API_KEY"] ?? ""
+        let api = ChatGPTAPI(apiKey: apikey as! String)
+        var sentence = ""
+        for symptom in symptoms {
+            sentence.append(symptom.content + "\n")
+        }
+        let symptomsWithOneSentence = sentence
+        let age = UserDefaults.standard.string(forKey: "age")!
+        let height = UserDefaults.standard.string(forKey: "height")!
+        let weight = UserDefaults.standard.string(forKey: "weight")!
+        let gender = UserDefaults.standard.string(forKey: "gender")!
+
+        Task {
+            do {
+                // TF-IDF 먼저
+                let (data, _) = try await URLSession.shared.data(from: url)
+                let dataString = String(data: data, encoding: .utf8)!
+                print("[tfidf answer]\n", dataString)
+                
+                let diseases = dataString
+                    .substring(from: 1, to: dataString.count - 2)
+                    .replacingOccurrences(of: " ", with: "")
+                    .replacingOccurrences(of: "\n", with: "")
+                    .split(separator: ",")
+                    .compactMap { diseaseRepository.findById(id: Int($0)!) ?? nil }
+                
+                
+                let question = "내 나이는 \(age)살 이고, 키는 \(height)cm 이고, 몸무게는 \(weight)kg 이고, 성별은 \(gender)야.\n" +
+                                "아래에 말하는 것들은 요즘 내가 느끼는 증상이야.\n\n" +
+                                symptomsWithOneSentence +
+                                "\n이 증상들이 느껴질 때 아래 질병들을 의심할만한지 알려줘.\n" +
+                                diseases.map{$0.name}.joined(separator: ", ") +
+                                "\n\n각각의 질병에 대해 가능성이 높다면 1로, 가능성이 낮다면 0으로 해서 세자리 이진수로 반환해줘. 예를 들어 0b001 같이 알려줘."
+                print(question)
+                
+                let response = try await api.sendMessage(text: question)
+                print("[gpt answer]\n", response)
+                
+                var totalDiseases = [Disease]()
+                
+                if !response.findAll(str: "0b").isEmpty {
+                    let binIndex = response.findAll(str: "0b")[0]
+                    let binValue = response.substring(from: binIndex+2, to: binIndex+5)
+                    print(binValue)
+                    for (i, v) in binValue.enumerated() {
+                        if v == "1" {
+                            totalDiseases.append(diseases[i])
+                        }
+                    }
+                }
+                
+                updataPredictedDiseases(diseases: totalDiseases)
+
             } catch {
                 print(error.localizedDescription)
             }
