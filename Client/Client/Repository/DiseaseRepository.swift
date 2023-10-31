@@ -14,6 +14,7 @@ protocol DiseaseRepository {
     func findByName(name: String) -> [Disease]
     func findById(id: Int) -> Disease?
     func getSuspectedDisease(from: Date, to: Date) -> [Disease]
+    func getDepartment(disease: Disease) -> [MedicalDepartment]
 }
 
 class SQLite3DiseaseRepository: DiseaseRepository {
@@ -99,5 +100,29 @@ class SQLite3DiseaseRepository: DiseaseRepository {
             Disease(id: 2, name: "코로나", definition: "코로나정의", cause: "코로나원인", symptom: "코로나증상", diagnosis: "코로나진단", cure: "코로나치료"),
             Disease(id: 3, name: "결핵", definition: "결핵정의", cause: "결핵원인", symptom: "결핵증상", diagnosis: "결핵진단", cure: "결핵치료"),
         ]
+    }
+    
+    func getDepartment(disease: Disease) -> [MedicalDepartment] {
+        let query = "select * from department where disease_id = \(disease.id)"
+        var stmt: OpaquePointer?
+        
+        defer { sqlite3_finalize(stmt) }
+        
+        guard sqlite3_prepare_v2(db, query, -1, &stmt, nil) == SQLITE_OK else {
+            let msg = String(cString: sqlite3_errmsg(db))
+            print("error on SQLite3DiseaseRepository.findByName: \(msg)")
+            return []
+        }
+        
+        var result = [MedicalDepartment]()
+        
+        while sqlite3_step(stmt) == SQLITE_ROW {
+            let id = Int(sqlite3_column_int(stmt, 0))
+            let diseaseId = Int(sqlite3_column_int(stmt, 1))
+            let name = String(cString: sqlite3_column_text(stmt, 2))
+            result.append(MedicalDepartment(id: id, diseaseId: diseaseId, name: name))
+        }
+        
+        return result
     }
 }

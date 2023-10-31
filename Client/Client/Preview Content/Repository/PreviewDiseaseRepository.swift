@@ -8,6 +8,10 @@
 import Foundation
 
 class PreviewDiseaseRepository: DiseaseRepository {
+    func getDepartment(disease: Disease) -> [MedicalDepartment] {
+        [MedicalDepartment(id: 1, diseaseId: 1, name: "외과")]
+    }
+    
     static var shared: DiseaseRepository = PreviewDiseaseRepository()
     
     func findByName(name: String) -> [Disease] {

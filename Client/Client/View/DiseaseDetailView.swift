@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DiseaseDetailView: View {
     let disease: Disease
+    let department: [MedicalDepartment]
     
     var body: some View {
         VStack {
@@ -18,6 +19,7 @@ struct DiseaseDetailView: View {
                 DiseaseSection(title: "증상", content: disease.symptom)
                 DiseaseSection(title: "진단", content: disease.diagnosis)
                 DiseaseSection(title: "치료", content: disease.cure)
+                DiseaseSection(title: "관련 병과", content: department.map { $0.name }.joined(separator: ", "))
                 Spacer()
             }
 //            
@@ -44,6 +46,6 @@ struct DiseaseDetailView: View {
 
 struct DiseaseDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DiseaseDetailView(disease: Disease(id: 1, name: "감기", definition: "감기정의", cause: "감기원인", symptom: "감기증상", diagnosis: "감기진단", cure: "감기치료"))
+        DiseaseDetailView(disease: Disease(id: 1, name: "감기", definition: "감기정의", cause: "감기원인", symptom: "감기증상", diagnosis: "감기진단", cure: "감기치료"), department: [MedicalDepartment(id: 1, diseaseId: 1, name: "외과")])
     }
 }

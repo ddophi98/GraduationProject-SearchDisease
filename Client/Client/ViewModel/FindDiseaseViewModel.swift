@@ -21,6 +21,10 @@ class FindDiseaseViewModel: ObservableObject {
         self.searchDiseases = diseaseRepository.findByName(name: searchText)
     }
     
+    func getDepartment(disease: Disease) -> [MedicalDepartment] {
+        return diseaseRepository.getDepartment(disease: disease)
+    }
+    
     func clear() {
         self.searchText = ""
         self.searchDiseases = []

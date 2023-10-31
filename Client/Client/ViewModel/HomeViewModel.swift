@@ -257,4 +257,8 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
+    
+    func getDepartment(disease: Disease) -> [MedicalDepartment] {
+        return diseaseRepository.getDepartment(disease: disease)
+    }
 }

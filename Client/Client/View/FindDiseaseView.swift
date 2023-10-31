@@ -60,7 +60,7 @@ struct FindDiseaseView: View {
                 
                 ScrollView {
                     ForEach(viewModel.searchDiseases) { disease in
-                        NavigationLink(destination: DiseaseDetailView(disease: disease)) {
+                        NavigationLink(destination: DiseaseDetailView(disease: disease, department: viewModel.getDepartment(disease: disease))) {
                             DiseaseEntry(disease: disease)
                         }
                     }

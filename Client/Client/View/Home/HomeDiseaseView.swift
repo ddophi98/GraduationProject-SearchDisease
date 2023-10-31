@@ -97,7 +97,7 @@ struct HomeDiseaseView: View {
         
         VStack {
             ForEachWithIndex(data: viewModel.predictedDiseases) { index, disease in
-                NavigationLink(destination: DiseaseDetailView(disease: disease)) {
+                NavigationLink(destination: DiseaseDetailView(disease: disease, department: viewModel.getDepartment(disease: disease))) {
                     DiseaseEntry(disease: disease, rank: index + 1)
                 }
             }
